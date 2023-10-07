@@ -125,3 +125,6 @@ mysql-connector-python.py
 
 # Documentation build directory
 docs/_build/
+
+# Random test files
+test_params_create.py

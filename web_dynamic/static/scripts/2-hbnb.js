@@ -3,19 +3,18 @@
  */
 class ApiStatusChecker {
   /**
-	 * Create a new ApiStatusChecker instance.
-	 * @param {string} apiUrl - The URL of the API to check.
-	 * @param {string} statusElementId - The ID of the HTML element to update based on the API status.
-	 */
-  constructor (apiUrl, statusElementId) {
+   * Create a new ApiStatusChecker instance.
+   * @param {string} apiUrl - The URL of the API to check.
+   * @param {string} statusElementId - The ID of the HTML element to update based on the API status.
+   */
+  constructor(apiUrl, statusElementId) {
     this.apiUrl = apiUrl;
     this.statusElementId = statusElementId;
   }
-
   /**
-	 * Check the status of the API and update the HTML element accordingly.
-	 */
-  checkStatus () {
+   * Check the status of the API and update the HTML element accordingly.
+   */
+  checkStatus() {
     // Make an AJAX GET request to the API URL
     $.get(this.apiUrl, (data) => {
       if (data.status === 'OK') {
@@ -31,22 +30,19 @@ class ApiStatusChecker {
       this.setStatusUnavailable();
     });
   }
-
   /**
-	 * Set the HTML element as available (adds the 'available' class).
-	 */
-  setStatusAvailable () {
+   * Set the HTML element as available (adds the 'available' class).
+   */
+  setStatusAvailable() {
     $(`#${this.statusElementId}`).addClass('available');
   }
-
   /**
-	 * Set the HTML element as unavailable (removes the 'available' class).
-	 */
-  setStatusUnavailable () {
+   * Set the HTML element as unavailable (removes the 'available' class).
+   */
+  setStatusUnavailable() {
     $(`#${this.statusElementId}`).removeClass('available');
   }
 }
-
 // Wait for the DOM to be fully loaded before executing the code
 document.addEventListener('DOMContentLoaded', () => {
   // Define the API URL and the ID of the status element

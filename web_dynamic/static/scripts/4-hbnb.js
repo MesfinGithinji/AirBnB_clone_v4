@@ -140,7 +140,6 @@ class PlaceLoader {
 			`<div class="price_by_night">$${place.price_by_night}</div>`
     );
     titleBox.append(title, priceByNight);
-
     // Create the information section
     const information = $('<div class="information"></div>');
     const maxGuest = $(
@@ -159,12 +158,10 @@ class PlaceLoader {
 			}</div>`
     );
     information.append(maxGuest, numberRooms, numberBathrooms);
-
     // Create the user section
     const user = $(
 			`<div class="user"><b>Owner:</b> ${place.user.first_name} ${place.user.last_name}</div>`
     );
-
     // Create the description section
     const description = $(
 			`<div class="description">${place.description}</div>`
@@ -177,7 +174,6 @@ class PlaceLoader {
     return article;
   }
 }
-
 /**
  * Document ready function to initialize the API status checker and place loader.
  */

@@ -69,7 +69,8 @@ def filter_places():
     Filter places by selected amenities.
 
     Returns:
-        Response: A JSON response containing a list of places without 'amenities'.
+        Response: A JSON response containing
+        a list of places without 'amenities'.
     """
     # Get the list of amenities from the request JSON data
     data = request.get_json()
@@ -80,7 +81,15 @@ def filter_places():
 
     # Use list comprehension to filter places based on selected amenities
     filtered_places = [
-        place for place in places if all(amenity.id in [a.id for a in place.amenities] for amenity in amenities)
+        place
+        for place in places
+        if all(
+            amenity.id in [
+                a.id
+                for a in place.amenities
+            ]
+            for amenity in amenities
+        )
     ]
 
     # Create the final list of places without 'amenities' in the response

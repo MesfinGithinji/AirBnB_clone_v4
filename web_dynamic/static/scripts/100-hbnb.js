@@ -7,7 +7,7 @@ class ApiStatusChecker {
      * @param {string} apiUrl - The URL of the API status endpoint.
      * @param {string} statusElementId - The ID of the HTML element to display the API status.
      */
-  constructor (apiUrl, statusElementId) {
+  constructor(apiUrl, statusElementId) {
     this.apiUrl = apiUrl;
     this.statusElementId = statusElementId;
   }
@@ -15,7 +15,7 @@ class ApiStatusChecker {
   /**
      * Check the status of the API and update the HTML element accordingly.
      */
-  checkStatus () {
+  checkStatus() {
     $.get(this.apiUrl, (data) => {
       if (data.status === 'OK') {
         this.setStatusAvailable();
@@ -31,14 +31,14 @@ class ApiStatusChecker {
   /**
      * Set the API status as available by adding a CSS class.
      */
-  setStatusAvailable () {
+  setStatusAvailable() {
     $(`#${this.statusElementId}`).addClass('available');
   }
 
   /**
      * Set the API status as unavailable by removing a CSS class.
      */
-  setStatusUnavailable () {
+  setStatusUnavailable() {
     $(`#${this.statusElementId}`).removeClass('available');
   }
 }
@@ -50,7 +50,7 @@ class AmenityFilter {
   /**
      * Initialize the amenity filter.
      */
-  constructor () {
+  constructor() {
     this.selectedAmenities = {};
     // Listen for changes on each input checkbox tag
     $('input[type=checkbox]').change(
@@ -69,7 +69,7 @@ class AmenityFilter {
      * Get the selected amenities.
      * @returns {string[]} - An array of selected amenity IDs.
      */
-  getSelectedAmenities () {
+  getSelectedAmenities() {
     return Object.keys(this.selectedAmenities);
   }
 }
@@ -81,7 +81,7 @@ class LocationFilter {
   /**
      * Initialize the location filter.
      */
-  constructor () {
+  constructor() {
     this.selectedLocations = {};
     // Listen for changes on each input checkbox tag
     $('input[type=checkbox]').change(
@@ -100,7 +100,7 @@ class LocationFilter {
      * Get the selected locations.
      * @returns {string[]} - An array of selected location IDs.
      */
-  getSelectedLocations () {
+  getSelectedLocations() {
     return Object.keys(this.selectedLocations);
   }
 }
@@ -112,7 +112,7 @@ class PlaceLoader {
   /**
      * Initialize the place loader.
      */
-  constructor () {
+  constructor() {
     this.filterButton = $('#filter_button');
     this.placesSection = $('.places');
     this.amenityFilter = new AmenityFilter();
@@ -126,7 +126,7 @@ class PlaceLoader {
   /**
      * Load places based on selected filters.
      */
-  loadPlaces () {
+  loadPlaces() {
     const amenities = this.amenityFilter.getSelectedAmenities();
     const locations = this.locationFilter.getSelectedLocations();
     const data = { amenities, locations };
@@ -149,7 +149,7 @@ class PlaceLoader {
      * Display places in the HTML section.
      * @param {object[]} places - An array of place objects.
      */
-  displayPlaces (places) {
+  displayPlaces(places) {
     this.placesSection.empty();
     for (const place of places) {
       const article = this.createPlaceArticle(place);
@@ -162,7 +162,7 @@ class PlaceLoader {
      * @param {object} place - A place object with information.
      * @returns {jQuery} - A jQuery object representing the created article element.
      */
-  createPlaceArticle (place) {
+  createPlaceArticle(place) {
     // Create a new article element
     const article = $('<article>');
 
@@ -170,37 +170,33 @@ class PlaceLoader {
     const titleBox = $('<div class="title_box"></div>');
     const title = $(`<h2>${place.name}</h2>`);
     const priceByNight = $(
-        `<div class="price_by_night">$${place.price_by_night}</div>`
+      `<div class="price_by_night">$${place.price_by_night}</div>`
     );
     titleBox.append(title, priceByNight);
 
     // Create the information section
     const information = $('<div class="information"></div>');
     const maxGuest = $(
-        `<div class="max_guest">${place.max_guest} Guest${
-          place.max_guest !== 1 ? 's' : ''
-        }</div>`
+      `<div class="max_guest">${place.max_guest} Guest${place.max_guest !== 1 ? 's' : ''
+      }</div>`
     );
     const numberRooms = $(
-        `<div class="number_rooms">${place.number_rooms} Bedroom${
-          place.number_rooms !== 1 ? 's' : ''
-        }</div>`
+      `<div class="number_rooms">${place.number_rooms} Bedroom${place.number_rooms !== 1 ? 's' : ''
+      }</div>`
     );
     const numberBathrooms = $(
-        `<div class="number_bathrooms">${place.number_bathrooms} Bathroom${
-          place.number_bathrooms !== 1 ? 's' : ''
-        }</div>`
+      `<div class="number_bathrooms">${place.number_bathrooms} Bathroom${place.number_bathrooms !== 1 ? 's' : ''
+      }</div>`
     );
     information.append(maxGuest, numberRooms, numberBathrooms);
 
     // Create the user section
     const user = $(
-        `<div class="user"><b>Owner:</b> ${place.user.first_name} ${place.user.last_name}</div>`
+      `<div class="user"><b>Owner:</b> ${place.user.first_name} ${place.user.last_name}</div>`
     );
-
     // Create the description section
     const description = $(
-        `<div class="description">${place.description}</div>`
+      `<div class="description">${place.description}</div>`
     );
 
     // Append all sections to the article
@@ -210,7 +206,6 @@ class PlaceLoader {
     return article;
   }
 }
-
 /**
    * Document ready function to initialize the API status checker and place loader.
    */

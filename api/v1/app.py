@@ -36,7 +36,6 @@ app.config['SWAGGER'] = {
 
 Swagger(app)
 
-
 if __name__ == '__main__':
     """ app run """
     host = environ.get('HBNB_API_HOST')

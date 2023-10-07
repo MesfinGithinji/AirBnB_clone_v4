@@ -1,4 +1,5 @@
-# AirBnB Clone - The Console
+# AirBnB Clone - Web Dynamic
+Welcome to the AirBnB Clone project with added Web Dynamics features. This project focuses on enhancing the user experience by implementing dynamic web functionalities in the AirBnB clone.
 The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
 
 #### Functionalities of this command interpreter:
@@ -9,14 +10,20 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * Destroy an object
 
 ## Table of Content
+* [Introduction](#introduction)
 * [Environment](#environment)
 * [Installation](#installation)
 * [File Descriptions](#file-descriptions)
 * [Usage](#usage)
+* [Web Dynamics Features](#web-dynamics-features)
 * [Examples of use](#examples-of-use)
 * [Bugs](#bugs)
 * [Authors](#authors)
 * [License](#license)
+
+## Introduction
+
+The AirBnB Clone project aims to replicate the functionality of the Airbnb website, allowing users to search for accommodations, book stays, and interact with property listings. In this version of the project, we have introduced dynamic web features to improve the user interface and overall user experience.
 
 ## Environment
 This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
@@ -126,6 +133,17 @@ TestBaseModel class:
 * `def test_user_module_docstring(self)` - Test for the user.py module docstring
 * `def test_user_class_docstring(self)` - Test for the User class docstring
 
+## Web Dynamics Features
+
+In this version of the AirBnB Clone, we have introduced the following web dynamics features:
+
+1. **Dynamic Filtering**: Users can now filter search results based on various criteria such as amenities, location, and price range.
+
+2. **Real-Time Availability**: The system now displays real-time availability information for properties, preventing double bookings and ensuring a seamless booking experience.
+
+3. **User Reviews**: Guests can leave reviews and ratings for their stays, and hosts can respond to reviews, enhancing transparency and user interaction.
+
+4. **Interactive Maps**: Property listings now include interactive maps for users to explore property locations and nearby attractions.
 
 ## Examples of use
 ```
